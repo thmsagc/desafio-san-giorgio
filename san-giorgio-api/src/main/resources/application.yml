@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    username: sa
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+server:
+  error:
+    include-message: always
+
+aws:
+  sqs:
+    accessKey: YOUR_ACCESS_KEY
+    secretKey: YOUR_SECRET_KEY
+    region: us-east-1
+    queues:
+      partialQueue: https://sqs.us-east-1.amazonaws.com/YOUR_ACCOUNT_ID/YOUR_QUEUE_NAME_1
+      paidQueue: https://sqs.us-east-1.amazonaws.com/YOUR_ACCOUNT_ID/YOUR_QUEUE_NAME_2
+      surplusQueue: https://sqs.us-east-1.amazonaws.com/YOUR_ACCOUNT_ID/YOUR_QUEUE_NAME_2
