@@ -85,7 +85,7 @@ O retorno deve ser muito semelhante a entrada, porém deve informar a situação
 - Para uso com filas SQS reais, configurar o application.yml com as credenciais. Caso deseje executar em ambiente com filas SQS emuladas com 
 Local Stack, inicializar o docker-compose e utilizar o profile "dev" na aplicação.
 
-## Como usar as API
+## Como usar as API's
 1. Cadastrar Client com o nome desejado com o endpoint POST /api/clients.
 2. Cadastrar Charge com o valor desejado com o endpoint POST /api/charges.
 3. Inserir pagamentos com o endpoint POST /api/payments, informando os identificadores dos objetos Client e Charge
