@@ -1,29 +1,21 @@
 package br.com.desafio.presentation.dto.response;
 
-import br.com.desafio.domain.shared.PaymentStatus;
-import br.com.desafio.application.generic.GenericResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
-public class PaymentResponse extends GenericResponse {
-
-    @JsonProperty("id")
-    private UUID id;
+@AllArgsConstructor
+public class PaymentResponse {
 
     @JsonProperty("client_id")
     private UUID clientId;
 
-    @JsonProperty("charge_id")
-    private UUID chargeId;
-
-    private BigDecimal amount;
-
-    private PaymentStatus status;
+    @JsonProperty("payment_items")
+    private List<@Valid PaymentItemResponse> paymentItems;
 
 }

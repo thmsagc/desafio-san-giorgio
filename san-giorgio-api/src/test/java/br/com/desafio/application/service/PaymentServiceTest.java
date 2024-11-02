@@ -10,9 +10,6 @@ import br.com.desafio.infrastructure.configuration.PaymentStatusMapper;
 import br.com.desafio.infrastructure.service.SqsQueueService;
 import br.com.desafio.presentation.dto.request.PaymentItemRequest;
 import br.com.desafio.presentation.dto.request.PaymentRequest;
-import br.com.desafio.presentation.mapper.PaymentMapper;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -38,15 +35,10 @@ class PaymentServiceTest {
     private PaymentRepository repository;
 
     @Mock
-    private PaymentMapper mapper;
-
-    @Mock
     private PaymentStatusMapper paymentStatusMapper;
 
     @Mock
     private SqsQueueService sqsQueueService;
-
-    private ObjectWriter objectWriter;
 
     @InjectMocks
     private PaymentServiceImpl paymentService;
@@ -54,7 +46,6 @@ class PaymentServiceTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        objectWriter = new ObjectMapper().writer().withDefaultPrettyPrinter();
     }
 
     @Test

@@ -96,12 +96,15 @@ public class PaymentServiceImpl extends GenericServiceImpl<Payment> implements P
     }
 
     public void sendPaymentToQueue(Payment payment) {
-        SqsQueueService handler = paymentStatusMapper.getHandler(payment.getStatus());
-        if (handler != null) {
+        SqsQueueService sqsQueueHandler = paymentStatusMapper.getHandler(payment.getStatus());
+        if (sqsQueueHandler != null) {
             try {
-                ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-                String message = ow.writeValueAsString(payment);
-                handler.sendMessage(message);
+                ObjectMapper objectMapper = new ObjectMapper();
+                objectMapper.findAndRegisterModules();
+                ObjectWriter objectWriter = objectMapper.writer().withDefaultPrettyPrinter();
+                objectMapper.findAndRegisterModules();
+                String message = objectWriter.writeValueAsString(payment);
+                sqsQueueHandler.sendMessage(message);
             } catch (JsonProcessingException e) {
                 throw new InternalServerErrorException("Error sending payment to corresponding queue.");
             }

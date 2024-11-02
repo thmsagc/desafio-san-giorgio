@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    username: sa
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+server:
+  error:
+    include-message: always
+
+aws:
+  sqs:
+    accessKey: test
+    secretKey: test
+    region: us-east-1
+    endpoint: http://localhost:4566
+    queues:
+      partialQueue: "http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/partialQueue"
+      paidQueue: "http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/paidQueue"
+      surplusQueue: "http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/surplusQueue"

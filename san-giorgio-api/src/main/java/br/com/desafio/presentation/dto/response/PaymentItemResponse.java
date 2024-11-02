@@ -1,23 +1,26 @@
-package br.com.desafio.presentation.dto.request;
+package br.com.desafio.presentation.dto.response;
 
+import br.com.desafio.application.generic.GenericResponse;
+import br.com.desafio.domain.shared.PaymentStatus;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class PaymentItemRequest {
+public class PaymentItemResponse extends GenericResponse {
 
     @JsonProperty("charge_id")
-    @NotNull
     private UUID chargeId;
 
     @JsonProperty("payment_value")
     @DecimalMin("0.01")
-    @NotNull
     private BigDecimal amount;
+
+    private PaymentStatus status;
 
 }

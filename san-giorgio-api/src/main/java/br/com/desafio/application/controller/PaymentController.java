@@ -26,9 +26,10 @@ public class PaymentController  {
     private final PaymentMapper paymentMapper;
 
     @PostMapping(path = "/api/payments")
-    public ResponseEntity<List<PaymentResponse>> processPayment(@Valid @RequestBody PaymentRequest request) {
+    public ResponseEntity<PaymentResponse> processPayment(@Valid @RequestBody PaymentRequest request) {
         List<Payment> payments = paymentService.process(request);
-        return ResponseEntity.status(HttpStatus.OK).body(paymentMapper.entitiesToResponses(payments));
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new PaymentResponse(request.getClientId(), paymentMapper.entitiesToResponses(payments)));
     }
 
 }
