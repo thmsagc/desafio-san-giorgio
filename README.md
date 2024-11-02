@@ -98,4 +98,4 @@ desenvolvimento.
 
 Como sugestão, para evitar interpretações diferentes sobre o contexto do problema proposto, os propositores podem
 acrescentar ao desafio a especificação exata do request e do response esperado. Essas informações podem ser muito
-úteis para o desenvolvedor compreender com mais clareza as necessidades do problema.
+úteis para o desenvolvedor compreender com mais clareza as expectativas do propositor.
