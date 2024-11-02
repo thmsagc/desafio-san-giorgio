@@ -92,8 +92,9 @@ Local Stack, inicializar o docker-compose e utilizar o profile "dev" na aplicaç
 cadastrados.
 
 ## Conclusão
-O desafio foi excelente, os propositores deixaram o projeto bem cru para que o desenvolvedor pudesse implementar o
-proposto praticamente do zero, desde a compreensão até a escolha das tecnologias.
+O desafio foi excelente! Os propositores deixaram o projeto bem cru, para que o desenvolvedor pudesse pensar na solução
+do que foi proposto proposto praticamente do zero, desde a compreensão do problema até a escolha da metodologia de
+desenvolvimento.
 
 Como sugestão, para evitar interpretações diferentes sobre o contexto do problema proposto, os propositores podem
 acrescentar ao desafio a especificação exata do request e do response esperado. Essas informações podem ser muito
